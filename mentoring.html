@@ -164,6 +164,32 @@
         }
 
         .guidance-section { margin-bottom: 64px; }
+        details.guidance-section { margin-bottom: 18px; }
+        details.guidance-section[open] { margin-bottom: 56px; }
+        details.guidance-section > summary.guidance-section-summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 3px solid var(--line);
+            padding-bottom: 14px;
+            user-select: none;
+        }
+        details.guidance-section > summary.guidance-section-summary::-webkit-details-marker { display: none; }
+        details.guidance-section > summary.guidance-section-summary::after {
+            content: "\25BE";
+            color: var(--primary);
+            font-size: 1.7rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+        details.guidance-section[open] > summary.guidance-section-summary { margin-bottom: 28px; }
+        details.guidance-section[open] > summary.guidance-section-summary::after { transform: rotate(180deg); }
+        details.guidance-section > summary.guidance-section-summary:hover .guidance-section-title { color: var(--primary-deep); }
+        details.guidance-section > summary.guidance-section-summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 4px; }
+        details.guidance-section > summary .guidance-section-title { margin: 0; padding: 0; border: 0; flex: 1; }
         .guidance-section-title {
             margin: 0 0 28px;
             color: var(--primary);
@@ -348,8 +374,7 @@
 <div class="container"><div class="section-header">
 <h1 class="section-title">학생 주요성과</h1>
 <p class="section-subtitle">Student Highlights</p>
-</div><section aria-labelledby="conference-title" class="guidance-section">
-<h2 class="guidance-section-title" id="conference-title">학술대회 참여</h2>
+</div><details class="guidance-section"><summary class="guidance-section-summary"><h2 class="guidance-section-title" id="conference-title">학술대회 참여</h2></summary>
 <div class="year-block">
 <h3 class="year-title">26년도</h3>
 <div class="content-card">
@@ -404,8 +429,7 @@
 </ul>
 </div>
 </div>
-</section><section aria-labelledby="corporate-mentoring-title" class="guidance-section">
-<h2 class="guidance-section-title" id="corporate-mentoring-title">기업연계멘토링</h2>
+</details><details class="guidance-section"><summary class="guidance-section-summary"><h2 class="guidance-section-title" id="corporate-mentoring-title">기업연계멘토링</h2></summary>
 <div class="year-block">
 <h3 class="year-title">25년도</h3>
 <div class="content-card">
@@ -452,8 +476,7 @@
 <div class="media-caption">2024학년도 동행 산학 멘토링 프로그램 장려상 시상식 (쿠쿠루핑팡팀)</div>
 </div>
 </div>
-</section><section aria-labelledby="research-project-title" class="guidance-section">
-<h2 class="guidance-section-title" id="research-project-title">연구과제 참여</h2>
+</details><details class="guidance-section"><summary class="guidance-section-summary"><h2 class="guidance-section-title" id="research-project-title">연구과제 참여</h2></summary>
 <div class="content-card">
 <h4 class="card-title">한국형 휠체어 사용 장애인의 동적 3차원 인체치수 데이터베이스 및 휠체어-사용자-환경 통합 설계 지표 개발</h4>
 <div class="card-text">학생연구원: 유은혜, 김용규, 박준영(23학번), 김건우(26학번)</div>
@@ -462,8 +485,7 @@
 <h4 class="card-title">(2024년 한국인 인체치수 조사)장애인 대상 인체치수 조사</h4>
 <div class="card-text">학생연구원: 김건호, 고유림, 권자연, 김태하(24학번)</div>
 </div>
-</section><section aria-labelledby="internship-guidance-title" class="guidance-section">
-<h2 class="guidance-section-title" id="internship-guidance-title">청년인턴 지도</h2>
+</details><details class="guidance-section"><summary class="guidance-section-summary"><h2 class="guidance-section-title" id="internship-guidance-title">청년인턴 지도</h2></summary>
 <div class="content-card">
 <h4 class="card-title">황인철(21학번)</h4>
 <div class="card-text">보건복지부 국립재활원 (25.7.1~25.12.31)</div>
@@ -472,20 +494,18 @@
 <h4 class="card-title">유은혜, 남다현(23학번)</h4>
 <div class="card-text">대주코레스 ESG경영팀 (26.8.10~26.10.30)</div>
 </div>
-</section><section aria-labelledby="startup-camp-title" class="guidance-section">
-<h2 class="guidance-section-title" id="startup-camp-title">창업캠프 지도</h2>
+</details><details class="guidance-section"><summary class="guidance-section-summary"><h2 class="guidance-section-title" id="startup-camp-title">창업캠프 지도</h2></summary>
 <div class="content-card">
 <h4 class="card-title">황윤성(21학번)</h4>
 <div class="card-text">전북권대학연합 업사이클링 창업캠프 대상</div>
 </div>
-</section><section aria-labelledby="work-experience-title" class="guidance-section">
-<h2 class="guidance-section-title" id="work-experience-title">일경험 프로젝트</h2>
+</details><details class="guidance-section"><summary class="guidance-section-summary"><h2 class="guidance-section-title" id="work-experience-title">일경험 프로젝트</h2></summary>
 <div class="content-card">
 <h4 class="card-title">산업안전분야의 청년인재양성을 위한 일경험 사업</h4>
 <div class="card-text">산업안전상생재단, 25.4~ 진행 중</div>
 <div class="card-text"><a href="https://www.ispf.or.kr/ispf/intro/futureBusiness.do" rel="noopener noreferrer" style="color: var(--primary); font-weight: 700;" target="_blank">관련 링크 보기</a></div>
 </div>
-</section></div>
+</details></div>
 </main>
 <footer class="footer">
 <div class="footer-content">
