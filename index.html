@@ -1413,116 +1413,9 @@
                 align-items: flex-start;
             }
         }
-
-        /* ==========================================================================
-           Homepage Popups
-           ========================================================================== */
-        .popup-stack {
-            position: fixed;
-            top: 90px;
-            right: 20px;
-            left: 20px;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 16px;
-            pointer-events: none;
-        }
-
-        .site-popup {
-            pointer-events: auto;
-            position: relative;
-            width: 100%;
-            max-width: 320px;
-            background-color: var(--mckinsey-white);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            border-top: 4px solid var(--mckinsey-blue-primary);
-            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
-            animation: popup-in 0.25s ease-out;
-        }
-
-        @keyframes popup-in {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .site-popup-close {
-            position: absolute;
-            top: 10px;
-            right: 12px;
-            border: none;
-            background: none;
-            font-size: 1.1rem;
-            line-height: 1;
-            color: var(--mckinsey-gray-400);
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        .site-popup-close:hover {
-            color: var(--mckinsey-gray-700);
-        }
-
-        .site-popup-title {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            color: var(--mckinsey-blue-primary);
-            margin: 0 0 var(--spacing-sm);
-            padding-right: 20px;
-        }
-
-        .site-popup-body {
-            font-size: var(--font-size-sm);
-            color: var(--mckinsey-gray-700);
-            line-height: 1.6;
-            margin: 0 0 var(--spacing-md);
-        }
-
-        .site-popup-hide-label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: var(--font-size-xs);
-            color: var(--mckinsey-gray-500);
-            cursor: pointer;
-            border-top: 1px solid var(--mckinsey-gray-200);
-            padding-top: var(--spacing-sm);
-        }
-
-        .site-popup-hide-label input {
-            margin: 0;
-        }
-
-        @media (max-width: 480px) {
-            .popup-stack {
-                top: 70px;
-                right: 12px;
-                left: 12px;
-            }
-
-            .site-popup {
-                max-width: none;
-            }
-        }
     </style>
 </head>
 <body>
-<div class="popup-stack" id="popup-stack">
-<div class="site-popup" id="site-popup-1">
-<button aria-label="팝업 닫기" class="site-popup-close" onclick="closeSitePopup('site-popup-1')" type="button">×</button>
-<h3 class="site-popup-title">🎉 축, 인턴 합격</h3>
-<p class="site-popup-body">유은혜, 남다현 (23학번, 4학년)<br/>대주코레스 ESG경영팀<br/>- 산업안전 미래내일 일경험 사업 -</p>
-<label class="site-popup-hide-label"><input id="site-popup-1-hide" type="checkbox"/>오늘 하루 보지 않기</label>
-</div>
-<div class="site-popup" id="site-popup-2">
-<button aria-label="팝업 닫기" class="site-popup-close" onclick="closeSitePopup('site-popup-2')" type="button">×</button>
-<h3 class="site-popup-title">🏅 국가기술자격 취득</h3>
-<p class="site-popup-body">산업안전기사 - 유은혜 (26년 1차)<br/>산업위생기사 - 이나은 (26년 1차)</p>
-<label class="site-popup-hide-label"><input id="site-popup-2-hide" type="checkbox"/>오늘 하루 보지 않기</label>
-</div>
-</div>
 <nav class="nav">
 <div class="container">
 <div class="nav-content">
@@ -1549,7 +1442,7 @@
 <section class="about" id="about">
 <div class="container">
 <div class="section-header">
-<img alt="Safety &amp; Ergonomics Laboratory 로고" src="photos/LAB로고.png" style="display: block; width: 200px; max-width: 60%; height: auto; margin: 0 auto var(--spacing-lg);"/>
+<img alt="원광대학교 안전보건인체공학 연구실 엠블럼" src="photos/연구실엠블럼.png" style="display: block; width: 200px; max-width: 60%; height: auto; margin: 0 auto var(--spacing-lg);"/>
 <h2 class="section-title">About</h2>
 <p class="section-subtitle">인간 중심의 연구로 더 나은 세상을 만들어갑니다</p>
 </div>
@@ -1582,31 +1475,7 @@
             initMobileMenu();
             initScrollAnimations();
             addAccessibilityFeatures();
-            initSitePopups();
         });
-
-        function initSitePopups() {
-            var today = new Date().toISOString().slice(0, 10);
-            ['site-popup-1', 'site-popup-2'].forEach(function(id) {
-                var hiddenUntil = localStorage.getItem(id + '-hidden-date');
-                var popup = document.getElementById(id);
-                if (popup && hiddenUntil === today) {
-                    popup.style.display = 'none';
-                }
-            });
-        }
-
-        function closeSitePopup(id) {
-            var popup = document.getElementById(id);
-            var checkbox = document.getElementById(id + '-hide');
-            if (checkbox && checkbox.checked) {
-                var today = new Date().toISOString().slice(0, 10);
-                localStorage.setItem(id + '-hidden-date', today);
-            }
-            if (popup) {
-                popup.style.display = 'none';
-            }
-        }
         
         function initMobileMenu() {
             const navToggle = document.querySelector('.nav-toggle');
