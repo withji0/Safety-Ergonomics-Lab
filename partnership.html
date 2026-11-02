@@ -1416,6 +1416,14 @@
             }
         }
 
+
+        /* Desktop nav fit: keep menu labels on one line and wrap the menu instead of breaking words */
+        @media (min-width: 769px) {
+            .nav-logo { flex-shrink: 0; }
+            .nav-logo .logo-text, .logo-text { white-space: nowrap; }
+            .nav-link { white-space: nowrap; }
+            .nav-menu { gap: 6px 18px; flex-wrap: wrap; justify-content: flex-end; }
+        }
     </style>
 </head>
 <body>
